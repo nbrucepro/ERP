@@ -63,10 +63,10 @@ export class UsersController {
     @Body('password') password: string,
   ): Promise<any> {
     const user = await this.usersService.getUser(username);
-    const passwordValidate = await bcrypt.compare(password, user.password);
     if (!user) {
-      throw new NotAcceptableException('User not found');
+        throw new NotAcceptableException('User not found');
     }
+    const passwordValidate = await bcrypt.compare(password, user.password);
     if (user && passwordValidate) {
       return {
         user,

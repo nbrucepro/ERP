@@ -15,9 +15,11 @@ import { UsersController } from './users/users.controller';
     AdminModule,
     UsersModule,
     AdminModule,
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+ 
