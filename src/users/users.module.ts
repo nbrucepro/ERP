@@ -7,7 +7,13 @@ import { JwtModule } from '@nestjs/jwt';
 import { jwtConfig } from 'src/config/jwt.config';
 
 @Module({
-  imports: [JwtModule.registerAsync(jwtConfig), MongooseModule.forFeature([{ name: 'users', schema: userSchema }])],
+  imports: [JwtModule.registerAsync(jwtConfig), MongooseModule.forFeatureAsync([{ name: 'clients', useFactory:()=>{
+    const schema = userSchema;
+    schema.pre('save',function () {
+      console.log('Hello from ERP pre save')
+    })
+    return schema;
+  } }])],
   providers: [UsersService],
   controllers: [UsersController],
 })
