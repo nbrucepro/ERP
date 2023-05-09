@@ -13,7 +13,19 @@ import { UsersService } from './users.service';
 import { User } from './user.model';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { ApiCreatedResponse, ApiProperty, ApiTags } from '@nestjs/swagger';
+import {
+  ApiCreatedResponse,
+  ApiForbiddenResponse,
+  ApiHeader,
+  ApiInternalServerErrorResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiOperation,
+  ApiParam,
+  ApiProperty,
+  ApiTags,
+  ApiUnprocessableEntityResponse,
+} from '@nestjs/swagger';
 import { UserDto } from './user.dto';
 
 @ApiTags('Users')
@@ -40,34 +52,39 @@ export class UsersController {
   @Post('/login')
   async validateUser(@Body() usera: UserDto): Promise<any> {
     const founduser = await this.usersService.getUser(usera.username);
-    console.log('Found user', founduser._id.toString());
     if (!founduser) {
       throw new NotAcceptableException('User not found');
+    } 
+      const passwordValidate = await bcrypt.compare(
+        usera.password,
+        founduser.password,
+      );    
+    if (!passwordValidate) {
+        return "password not match"
     }
-    const passwordValidate = await bcrypt.compare(
-      usera.password,
-      founduser.password,
-    );
-    if (usera && passwordValidate) {
-      return {
-        usera,
-        access_token: this.jwtService.sign({
-          userid: founduser?._id.toString(),
-          username: usera.username,
-        }),
-      };
-    }
-    return null;
+    return {
+      user: founduser,
+      access_token: this.jwtService.sign({
+        userid: founduser?._id.toString(),
+        username: usera.username,
+      }),
+    };
+    // }
+    // return null;
   }
 
-  @Put(':id')
-   updateUser(@Param() params:any,@Body() updateDto:UserDto):Promise<any> {
-
-    const user = this.usersService.updateUser(params.id,updateDto)    
+  @Put('/:id')
+  @ApiParam({ name: 'id', description: 'id' })
+  @ApiOkResponse({ description: 'User was updated successfully' })
+  @ApiNotFoundResponse({ description: 'Resource not found' })
+  @ApiForbiddenResponse({ description: 'Unauthorized Request' })
+  @ApiUnprocessableEntityResponse({ description: 'Bad Request' })
+  @ApiInternalServerErrorResponse({ description: 'Server is unreachable !' })
+  updateUser(@Param('id') id: any, @Body() updateDto: UserDto): Promise<any> {
+    console.log(id);
+    const user = this.usersService.updateUser(id, updateDto);
     return user;
   }
-
-
   @Get('/')
   async getUsers() {
     const users = await this.usersService.getAll();
@@ -75,6 +92,12 @@ export class UsersController {
   }
 
   @Get(':id')
+  @ApiParam({ name: 'id', description: 'id' })
+  @ApiOkResponse({ description: 'User fetched successfully' })
+  @ApiNotFoundResponse({ description: 'User not found' })
+  @ApiForbiddenResponse({ description: 'Unauthorized Request' })
+  @ApiUnprocessableEntityResponse({ description: 'Bad Request' })
+  @ApiInternalServerErrorResponse({ description: 'Server is unreachable !' })
   async getOne(@Param() params: any) {
     const user = await this.usersService.getById(params.id);
     if (!user) {
@@ -84,6 +107,12 @@ export class UsersController {
   }
 
   @Delete(':id')
+  @ApiParam({ name: 'id', description: 'id' })
+  @ApiOkResponse({ description: 'User deleted successfully' })
+  @ApiNotFoundResponse({ description: 'User not found' })
+  @ApiForbiddenResponse({ description: 'Unauthorized Request' })
+  @ApiUnprocessableEntityResponse({ description: 'Bad Request' })
+  @ApiInternalServerErrorResponse({ description: 'Server is unreachable !' })
   async deleteUser(@Param() params: any) {
     const deleteduser = this.usersService.deleteOne(params?.id);
     return 'user deleted successfully';
