@@ -1,20 +1,30 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { StockItem } from '../item/item.model';
-import mongoose from 'mongoose';
 
 export type WarehouseDocument = Warehouse & Document;
 
 @Schema()
 export class Warehouse {
   @Prop()
-  name: string;
+  warehouseCode: number;
 
   @Prop()
-  address: string;
+  warehouseName: string;
 
-  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'StockItem' }])
-  stockItems: StockItem[];
+  @Prop()
+  phone: number
+  
+  @Prop()
+  mobile: number
+
+  @Prop()
+  email: string
+
+  @Prop()
+  image: string
+
+  @Prop()
+  status: string
 }
 
 export const WarehouseSchema = SchemaFactory.createForClass(Warehouse);

@@ -7,6 +7,7 @@ import UsersModule from './users/users.module';
 // import { ItemsModule } from './stock/item/items.module';
 import { SupplierModule } from './stock/supplier/supplier.module';
 import { ItemsModule } from './stock/item/items.module';
+import { WarehouseModule } from './stock/warehouse/warehouse.module';
 @Module({
   imports: [
     AdminModule,
@@ -15,7 +16,8 @@ import { ItemsModule } from './stock/item/items.module';
     // MongooseModule.forRoot('mongodb://localhost/erpdb'),
     MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     ItemsModule,
-    SupplierModule
+    SupplierModule,
+    WarehouseModule
   ],
   controllers: [AppController], 
   providers: [AppService],
