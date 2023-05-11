@@ -13,6 +13,7 @@ import { SalaryModule } from './payroll/salaryTemplate/salary.template.module';
 import { HourlyModule } from './payroll/hourlyTemplate/hourly.template.module';
 import { TrainingModule } from './Training/training.module';
 import { LeadsModule } from './leads/leads.module';
+import { InvoiceModule } from './sales/Invoice/invoice.module';
 @Module({
   imports: [
     AdminModule,
@@ -28,7 +29,9 @@ import { LeadsModule } from './leads/leads.module';
     SalaryModule,
     HourlyModule,
     TrainingModule,
-    LeadsModule
+    LeadsModule,
+    InvoiceModule
+    
   ],
   controllers: [AppController], 
   providers: [AppService],
