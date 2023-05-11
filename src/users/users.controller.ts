@@ -7,7 +7,6 @@ import {
   Post,
   Put,
   Param,
-  Patch,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './user.model';
@@ -54,13 +53,13 @@ export class UsersController {
     const founduser = await this.usersService.getUser(usera.username);
     if (!founduser) {
       throw new NotAcceptableException('User not found');
-    } 
-      const passwordValidate = await bcrypt.compare(
-        usera.password,
-        founduser.password,
-      );    
+    }
+    const passwordValidate = await bcrypt.compare(
+      usera.password,
+      founduser.password,
+    );
     if (!passwordValidate) {
-        return "password not match"
+      return 'password not match';
     }
     return {
       user: founduser,
@@ -69,8 +68,6 @@ export class UsersController {
         username: usera.username,
       }),
     };
-    // }
-    // return null;
   }
 
   @Put('/:id')
