@@ -12,7 +12,7 @@ import { ManufacturerDto } from './manufacturer.dto';
 import { ManufacturerService } from './Manufacturer.service';
 
 @ApiTags('Manufacturer-list')
-@Controller('api/manufacturer')
+@Controller('api/stock/manufacturer')
 export class ManufacturerController {
   constructor(private readonly manufacturerService: ManufacturerService) {}
 

@@ -12,7 +12,7 @@ import { StockItemDto } from './items.dto';
 import { ApiTags } from '@nestjs/swagger';
   
 @ApiTags("Stock-items")
-  @Controller('api/items')
+  @Controller('api/stock/items')
   export class StockItemController {
     constructor(private readonly stockItemService: StockItemService) {}
   

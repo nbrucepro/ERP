@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { StockItem } from '../item/item.model';
+import { StockItem } from '../item/items.model';
 import mongoose from 'mongoose';
 
 export type PurchaseDocument = Purchase & Document;

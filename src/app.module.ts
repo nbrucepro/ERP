@@ -10,6 +10,7 @@ import { ItemsModule } from './stock/item/items.module';
 import { WarehouseModule } from './stock/warehouse/warehouse.module';
 import { GrouplistModule } from './stock/grouplist/grouplist.module';
 import { ManufacturerModule } from './stock/manufacturer/manufacturer.module';
+import { SalaryModule } from './payroll/salaryTemplate/salary.template.module';
 @Module({
   imports: [
     AdminModule,
@@ -21,7 +22,8 @@ import { ManufacturerModule } from './stock/manufacturer/manufacturer.module';
     GrouplistModule,
     ManufacturerModule,
     SupplierModule,
-    WarehouseModule
+    WarehouseModule,
+    SalaryModule
   ],
   controllers: [AppController], 
   providers: [AppService],

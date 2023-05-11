@@ -5,7 +5,7 @@ import { Supplier } from './supplier.model';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Suppliers')
-@Controller('api/suppliers')
+@Controller('api/stock/suppliers')
 export class SupplierController {
   constructor(private readonly supplierService: SupplierService) {}
 

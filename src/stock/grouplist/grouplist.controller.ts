@@ -12,7 +12,7 @@ import { GrouplistDto } from './grouplist.dto';
 import { GrouplistService } from './GrouplistService.service';
 
 @ApiTags('Group-list')
-@Controller('api/group')
+@Controller('api/stock/group')
 export class GrouplistController {
   constructor(private readonly grouplistService: GrouplistService) {}
 

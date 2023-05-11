@@ -5,7 +5,7 @@ import { WarehouseDto } from './warehouse.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Warehouses')
-@Controller('api/warehouses')
+@Controller('api/stock/warehouses')
 export class WarehouseController {
   constructor(private readonly warehouseService: WarehouseService) {}
 
