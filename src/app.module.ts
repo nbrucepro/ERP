@@ -26,4 +26,6 @@ import { ManufacturerModule } from './stock/manufacturer/manufacturer.module';
   controllers: [AppController], 
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  
+}

@@ -7,12 +7,15 @@ import {
   Post,
   Put,
   Param,
+  UseGuards,
+  Request,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './user.model';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiForbiddenResponse,
   ApiHeader,
@@ -26,6 +29,7 @@ import {
   ApiUnprocessableEntityResponse,
 } from '@nestjs/swagger';
 import { UserDto } from './user.dto';
+import { AuthGuard } from './auth.guard';
 
 @ApiTags('Users')
 @Controller('api/users')
@@ -38,9 +42,8 @@ export class UsersController {
   @Post('/signup')
   @ApiCreatedResponse({
     description: 'User created successfully',
-    type: User,
-  })
-  async createUser(@Body() usera: UserDto): Promise<User> {
+    })
+  async createUser(@Body() usera: UserDto): Promise<UserDto> {
     const saltOrRounds = 10;
     const hasspassword = await bcrypt.hash(usera.password, saltOrRounds);
     usera.password = hasspassword;
@@ -82,6 +85,14 @@ export class UsersController {
     const user = this.usersService.updateUser(id, updateDto);
     return user;
   }
+
+  @UseGuards(AuthGuard)
+  @Get('profile')
+  @ApiBearerAuth('JWT-auth')
+  getProfile(@Request() req):any {
+    return req.user;
+  }
+
   @Get('/')
   async getUsers() {
     const users = await this.usersService.getAll();
