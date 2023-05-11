@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
 import { SupplierService } from './supplier.service';
 import { SupplierDto } from './supplier.dto';
-import { Supplier } from './supplier.schema';
+import { Supplier } from './supplier.model';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Suppliers')

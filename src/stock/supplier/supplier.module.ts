@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { SupplierController } from './supplier.controller';
 import { SupplierService } from './supplier.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SupplierSchema } from './supplier.schema';
+import { SupplierSchema } from './supplier.model';
 @Module({
     imports: [MongooseModule.forFeatureAsync([{ name: 'suppliers', useFactory:()=>{
         const schema = SupplierSchema;

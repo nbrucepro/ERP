@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
 import { WarehouseService } from './warehouse.service';
-import { Warehouse } from './warehouse.schema';
+import { Warehouse } from './warehouse.model';
 import { WarehouseDto } from './warehouse.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Warehouses')
-@Controller('warehouses')
+@Controller('api/warehouses')
 export class WarehouseController {
   constructor(private readonly warehouseService: WarehouseService) {}
 
