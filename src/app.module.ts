@@ -13,8 +13,8 @@ import { WarehouseModule } from './stock/warehouse/warehouse.module';
     AdminModule,
     UsersModule,
     AdminModule,
-    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     ItemsModule,
     SupplierModule,
     WarehouseModule

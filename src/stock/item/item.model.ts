@@ -9,24 +9,37 @@ export type StockItemDocument = StockItem & Document;
 @Schema()
 export class StockItem {
   @Prop()
-  name: string;
+  itemName: string;
 
   @Prop()
-  description: string;
+  code: string;
+
+  @Prop()
+  barcodeSymbology: string;
+
+  @Prop()
+  Manufacturer: string;
+
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'warehouses' })
+  warehouse: Warehouse;
+
+  @Prop()
+  costPrice: number;
+
+  @Prop()
+  salesPrice: number;
+
+  @Prop()
+  unitType: string;
 
   @Prop()
   quantity: number;
 
   @Prop()
-  price: number;
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Supplier' })
-  supplier: Supplier;
+  itemGroup: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Warehouse' })
-  warehouse: Warehouse;
-
-  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Purchase' }])
-  purchases: Purchase[];
+  @Prop()
+  tax: number;
 }
 
 export const StockItemSchema = SchemaFactory.createForClass(StockItem);

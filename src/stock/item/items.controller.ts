@@ -1,11 +1,47 @@
-import { Controller, Get } from '@nestjs/common';
+import {
+    Controller,
+    Get,
+    Post,
+    Body,
+    Put,
+    Param,
+    Delete,
+  } from '@nestjs/common';
+  import { StockItemService } from './items.service';
+import { StockItemDto } from './items.dto';
 import { ApiTags } from '@nestjs/swagger';
-
-@Controller('api/items')
-@ApiTags('Stock')
-export class ItemsController {
-    @Get('/')
-    tst(){
-        return 'This is item controller...'
+  
+@ApiTags("Stock-items")
+  @Controller('stock-items')
+  export class StockItemController {
+    constructor(private readonly stockItemService: StockItemService) {}
+  
+    @Post()
+    async create(@Body() createStockItemDto: StockItemDto) {
+      return this.stockItemService.create(createStockItemDto);
     }
-}
+  
+    @Get()
+    async findAll() {
+      return this.stockItemService.findAll();
+    }
+  
+    @Get(':id')
+    async findOne(@Param('id') id: string) {
+      return this.stockItemService.findOne(id);
+    }
+  
+    @Put(':id')
+    async update(
+      @Param('id') id: string,
+      @Body() updateStockItemDto: StockItemDto,
+    ) {
+      return this.stockItemService.update(id, updateStockItemDto);
+    }
+  
+    @Delete(':id')
+    async remove(@Param('id') id: string) {
+      return this.stockItemService.remove(id);
+    }
+  }
+  
