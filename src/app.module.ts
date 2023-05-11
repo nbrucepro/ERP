@@ -19,8 +19,8 @@ import { InvoiceModule } from './sales/Invoice/invoice.module';
     AdminModule,
     UsersModule,
     AdminModule,
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     ItemsModule,
     GrouplistModule,
     ManufacturerModule,
@@ -37,4 +37,4 @@ import { InvoiceModule } from './sales/Invoice/invoice.module';
   providers: [AppService],
 })
 export class AppModule {  
-}
+}  
