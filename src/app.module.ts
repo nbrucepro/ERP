@@ -20,6 +20,7 @@ import { ArticlesModule } from './knowledgeBase/articles/articles.module';
 import { BankAccountModule } from './transactions/backAccount/bankAccount.module';
 import { ClientsModule } from './clients/clients.module';
 import { DepartmentModule } from './department/department.module';
+import { OfficeCategoryModule } from './officeAssets/category/leads.module';
 @Module({
   imports: [
     AdminModule,
@@ -42,7 +43,8 @@ import { DepartmentModule } from './department/department.module';
     CategoryModule,
     BankAccountModule,
     ClientsModule,
-    DepartmentModule    
+    DepartmentModule,
+    OfficeCategoryModule    
   ],
   controllers: [AppController], 
   providers: [AppService],
