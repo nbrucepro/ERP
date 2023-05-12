@@ -21,6 +21,7 @@ import { BankAccountModule } from './transactions/backAccount/bankAccount.module
 import { ClientsModule } from './clients/clients.module';
 import { DepartmentModule } from './department/department.module';
 import { OfficeCategoryModule } from './officeAssets/category/leads.module';
+import { OfficeStockModule } from './officeAssets/stock/stock.module';
 @Module({
   imports: [
     AdminModule,
@@ -44,7 +45,8 @@ import { OfficeCategoryModule } from './officeAssets/category/leads.module';
     BankAccountModule,
     ClientsModule,
     DepartmentModule,
-    OfficeCategoryModule    
+    OfficeCategoryModule,
+    OfficeStockModule,    
   ],
   controllers: [AppController], 
   providers: [AppService],
