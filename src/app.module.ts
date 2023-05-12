@@ -15,13 +15,15 @@ import { TrainingModule } from './Training/training.module';
 import { LeadsModule } from './leads/leads.module';
 import { InvoiceModule } from './sales/Invoice/invoice.module';
 import { TicketsModule } from './tickets/tickets.module';
+import { CategoryModule } from './knowledgeBase/category/category.module';
+import { ArticlesModule } from './knowledgeBase/articles/articles.module';
 @Module({
   imports: [
     AdminModule,
     UsersModule,
     AdminModule,
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     ItemsModule,
     GrouplistModule,
     ManufacturerModule,
@@ -32,10 +34,13 @@ import { TicketsModule } from './tickets/tickets.module';
     TrainingModule,
     LeadsModule,
     InvoiceModule,
-    TicketsModule    
+    TicketsModule,
+    ArticlesModule,
+    CategoryModule    
   ],
   controllers: [AppController], 
   providers: [AppService],
 })
 export class AppModule {  
 }  
+
