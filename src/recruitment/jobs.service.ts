@@ -7,7 +7,7 @@ import { JobsDto } from './jobs.dto';
 @Injectable()
 export class JobsService {
   constructor(
-    @InjectModel('jobssdb')
+    @InjectModel('jobsdb')
     private readonly jobsModel: Model<JobsDocument>,
   ) {}
 

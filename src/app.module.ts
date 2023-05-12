@@ -23,6 +23,9 @@ import { DepartmentModule } from './department/department.module';
 import { OfficeCategoryModule } from './officeAssets/category/leads.module';
 import { OfficeStockModule } from './officeAssets/stock/stock.module';
 import { OfficeAssignStockModule } from './officeAssets/assignStock/assignStock.module';
+import { JobsModule } from './recruitment/jobs.module';
+import { IndicatorsModule } from './performance/indicator/indicators.module';
+import { AppraisalModule } from './performance/appraisal/appraisal.module';
 @Module({
   imports: [
     AdminModule,
@@ -48,7 +51,10 @@ import { OfficeAssignStockModule } from './officeAssets/assignStock/assignStock.
     DepartmentModule,
     OfficeCategoryModule,
     OfficeStockModule,   
-    OfficeAssignStockModule 
+    OfficeAssignStockModule,
+    JobsModule,
+    IndicatorsModule,
+    AppraisalModule 
   ],
   controllers: [AppController], 
   providers: [AppService],
