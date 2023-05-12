@@ -19,6 +19,7 @@ import { CategoryModule } from './knowledgeBase/category/category.module';
 import { ArticlesModule } from './knowledgeBase/articles/articles.module';
 import { BankAccountModule } from './transactions/backAccount/bankAccount.module';
 import { ClientsModule } from './clients/clients.module';
+import { DepartmentModule } from './department/department.module';
 @Module({
   imports: [
     AdminModule,
@@ -40,7 +41,8 @@ import { ClientsModule } from './clients/clients.module';
     ArticlesModule,
     CategoryModule,
     BankAccountModule,
-    ClientsModule    
+    ClientsModule,
+    DepartmentModule    
   ],
   controllers: [AppController], 
   providers: [AppService],

@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ClientsSchema } from './clients.model';
-import { ClientsService } from './clients.service';
-import { ClientsController } from './clients.controller';
+import { DepartmentSchema } from './department.model';
+import { DepartmentService } from './department.service';
+import { DepartmentController } from './department.controller';
 
 @Module({
  imports:[
     MongooseModule.forFeatureAsync([
         {
-          name: 'clients',
+          name: 'departments',
           useFactory: () => {
-            const schema = ClientsSchema;
+            const schema = DepartmentSchema;
             schema.pre('save', function () {
               console.log('Hello from ERP pre save');
             });
@@ -19,7 +19,7 @@ import { ClientsController } from './clients.controller';
         },
       ]),
  ],
- providers: [ClientsService],
- controllers: [ClientsController]
+ providers: [DepartmentService],
+ controllers: [DepartmentController]
 })
-export class ClientsModule {}
+export class DepartmentModule {}
