@@ -18,6 +18,7 @@ import { TicketsModule } from './tickets/tickets.module';
 import { CategoryModule } from './knowledgeBase/category/category.module';
 import { ArticlesModule } from './knowledgeBase/articles/articles.module';
 import { BankAccountModule } from './transactions/backAccount/bankAccount.module';
+import { ClientsModule } from './clients/clients.module';
 @Module({
   imports: [
     AdminModule,
@@ -38,11 +39,11 @@ import { BankAccountModule } from './transactions/backAccount/bankAccount.module
     TicketsModule,
     ArticlesModule,
     CategoryModule,
-    BankAccountModule    
+    BankAccountModule,
+    ClientsModule    
   ],
   controllers: [AppController], 
   providers: [AppService],
 })
 export class AppModule {  
 }  
-
