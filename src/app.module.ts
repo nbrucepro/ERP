@@ -11,7 +11,7 @@ import { GrouplistModule } from './stock/grouplist/grouplist.module';
 import { ManufacturerModule } from './stock/manufacturer/manufacturer.module';
 import { SalaryModule } from './payroll/salaryTemplate/salary.template.module';
 import { HourlyModule } from './payroll/hourlyTemplate/hourly.template.module';
-import { TrainingModule } from './Training/Training.module';
+import { TrainingModule } from './Training/training.module';
 import { LeadsModule } from './leads/leads.module';
 import { InvoiceModule } from './sales/Invoice/invoice.module';
 import { TicketsModule } from './tickets/tickets.module';
