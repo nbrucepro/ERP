@@ -26,6 +26,7 @@ import { OfficeAssignStockModule } from './officeAssets/assignStock/assignStock.
 import { JobsModule } from './recruitment/jobs.module';
 import { IndicatorsModule } from './performance/indicator/indicators.module';
 import { AppraisalModule } from './performance/appraisal/appraisal.module';
+import { LeaveModule } from './leaveManagement/leave.module';
 @Module({
   imports: [
     AdminModule,
@@ -54,7 +55,8 @@ import { AppraisalModule } from './performance/appraisal/appraisal.module';
     OfficeAssignStockModule,
     JobsModule,
     IndicatorsModule,
-    AppraisalModule 
+    AppraisalModule,
+    LeaveModule 
   ],
   controllers: [AppController], 
   providers: [AppService],
