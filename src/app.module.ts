@@ -22,6 +22,7 @@ import { ClientsModule } from './clients/clients.module';
 import { DepartmentModule } from './department/department.module';
 import { OfficeCategoryModule } from './officeAssets/category/leads.module';
 import { OfficeStockModule } from './officeAssets/stock/stock.module';
+import { OfficeAssignStockModule } from './officeAssets/assignStock/assignStock.module';
 @Module({
   imports: [
     AdminModule,
@@ -46,7 +47,8 @@ import { OfficeStockModule } from './officeAssets/stock/stock.module';
     ClientsModule,
     DepartmentModule,
     OfficeCategoryModule,
-    OfficeStockModule,    
+    OfficeStockModule,   
+    OfficeAssignStockModule 
   ],
   controllers: [AppController], 
   providers: [AppService],
