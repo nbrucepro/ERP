@@ -11,19 +11,20 @@ import { GrouplistModule } from './stock/grouplist/grouplist.module';
 import { ManufacturerModule } from './stock/manufacturer/manufacturer.module';
 import { SalaryModule } from './payroll/salaryTemplate/salary.template.module';
 import { HourlyModule } from './payroll/hourlyTemplate/hourly.template.module';
-import { TrainingModule } from './Training/training.module';
+import { TrainingModule } from './training/training.module';
 import { LeadsModule } from './leads/leads.module';
 import { InvoiceModule } from './sales/Invoice/invoice.module';
 import { TicketsModule } from './tickets/tickets.module';
 import { CategoryModule } from './knowledgeBase/category/category.module';
 import { ArticlesModule } from './knowledgeBase/articles/articles.module';
+import { BankAccountModule } from './transactions/backAccount/bankAccount.module';
 @Module({
   imports: [
     AdminModule,
     UsersModule,
     AdminModule,
-    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     ItemsModule,
     GrouplistModule,
     ManufacturerModule,
@@ -36,7 +37,8 @@ import { ArticlesModule } from './knowledgeBase/articles/articles.module';
     InvoiceModule,
     TicketsModule,
     ArticlesModule,
-    CategoryModule    
+    CategoryModule,
+    BankAccountModule    
   ],
   controllers: [AppController], 
   providers: [AppService],
