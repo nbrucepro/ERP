@@ -29,12 +29,16 @@ import { AppraisalModule } from './performance/appraisal/appraisal.module';
 import { LeaveModule } from './leaveManagement/leave.module';
 import { FileManagerModule } from './fileManager/fileManager.module';
 import { ProjectsModule } from './projects/projects.module';
+import { ShiftModule } from './shiftManagement/shift/shift.module';
+import { AssignShiftModule } from './shiftManagement/shiftMapping/shift.module';
 @Module({
   imports: [
-    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
+    ShiftModule,
+    AssignShiftModule,
     ProjectsModule,
     AdminModule,
     ItemsModule,
