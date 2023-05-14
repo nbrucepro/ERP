@@ -31,22 +31,30 @@ import { FileManagerModule } from './fileManager/fileManager.module';
 import { ProjectsModule } from './projects/projects.module';
 import { ShiftModule } from './shiftManagement/shift/shift.module';
 import { AssignShiftModule } from './shiftManagement/shiftMapping/shift.module';
+import { TransferItemModule } from './stock/transferItem/transferItem.module';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
     AssignShiftModule,
     ProjectsModule,
     AdminModule,
+
+    /* The stock section */
+    
     ItemsModule,
-    FileManagerModule,
     GrouplistModule,
     ManufacturerModule,
     SupplierModule,
     WarehouseModule,
+    TransferItemModule,
+
+    /* The stock section */
+    
+    FileManagerModule,    
     SalaryModule,
     HourlyModule,
     TrainingModule,
