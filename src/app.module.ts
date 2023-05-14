@@ -27,14 +27,18 @@ import { JobsModule } from './recruitment/jobs.module';
 import { IndicatorsModule } from './performance/indicator/indicators.module';
 import { AppraisalModule } from './performance/appraisal/appraisal.module';
 import { LeaveModule } from './leaveManagement/leave.module';
+import { FileManagerModule } from './fileManager/fileManager.module';
+import { ProjectsModule } from './projects/projects.module';
 @Module({
   imports: [
-    AdminModule,
-    UsersModule,
-    AdminModule,
     // MongooseModule.forRoot('mongodb://localhost/erpdb'),
     MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    AdminModule,
+    UsersModule,
+    ProjectsModule,
+    AdminModule,
     ItemsModule,
+    FileManagerModule,
     GrouplistModule,
     ManufacturerModule,
     SupplierModule,
@@ -56,7 +60,7 @@ import { LeaveModule } from './leaveManagement/leave.module';
     JobsModule,
     IndicatorsModule,
     AppraisalModule,
-    LeaveModule 
+    LeaveModule  
   ],
   controllers: [AppController], 
   providers: [AppService],
