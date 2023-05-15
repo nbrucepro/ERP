@@ -14,7 +14,9 @@ import { ComplaintsTypesService } from './complaintsTypes.service';
 @ApiTags('Complaints')
 @Controller('api/complaintstypes')
 export class ComplaintsTypesController {
-  constructor(private readonly complaintsTypesService: ComplaintsTypesService) {}
+  constructor(
+    private readonly complaintsTypesService: ComplaintsTypesService,
+  ) {}
 
   @Post()
   async create(@Body() complaintsTypesDto: ComplaintsTypesDto) {
@@ -32,14 +34,15 @@ export class ComplaintsTypesController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() complaintsTypesDto: ComplaintsTypesDto) {
+  async update(
+    @Param('id') id: string,
+    @Body() complaintsTypesDto: ComplaintsTypesDto,
+  ) {
     return this.complaintsTypesService.update(id, complaintsTypesDto);
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    if(this.complaintsTypesService.remove(id)){
-      return "complaintsType deleted successfully!"
-    }
+    return await this.complaintsTypesService.remove(id);
   }
 }

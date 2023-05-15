@@ -29,7 +29,7 @@ export class ComplaintsController {
   @Get(':id')
   async findOne(@Param('id') id: string) {
     const complaint = this.complaintsService.findOne(id);
- 
+
     return complaint;
   }
 
@@ -40,9 +40,6 @@ export class ComplaintsController {
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    if(this.complaintsService.remove(id)){
-      return "complaint deleted successfully!"
-    }
-    return "Complaint not found"
+    return this.complaintsService.remove(id);
   }
 }

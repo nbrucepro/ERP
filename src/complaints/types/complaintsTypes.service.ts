@@ -11,27 +11,55 @@ export class ComplaintsTypesService {
     private readonly complaintTypesModel: Model<ComplaintsTypesDocument>,
   ) {}
 
-  async create(createComplaintTypesDto: ComplaintsTypesDto): Promise<ComplaintsTypesDto> {
-    const complaintTypes = new this.complaintTypesModel(createComplaintTypesDto);
+  async create(
+    createComplaintTypesDto: ComplaintsTypesDto,
+  ): Promise<ComplaintsTypesDto> {
+    const complaintTypes = new this.complaintTypesModel(
+      createComplaintTypesDto,
+    );
     return complaintTypes.save();
   }
 
   async findAll(): Promise<any> {
     let complaintTypes = this.complaintTypesModel.find().exec();
+    if (complaintTypes === null) {
+      return 'complaints typess not found';
+    }
     return complaintTypes;
   }
 
   async findOne(id: string): Promise<any> {
-    return this.complaintTypesModel.findById(id).exec();
+    const complaintTypes = this.complaintTypesModel.findById(id).exec();
+    if (complaintTypes === null) {
+      return 'Complaint type not found';
+    }
+    return complaintTypes;
   }
 
-  async update(id: string, updateComplaintTypesdto: ComplaintsTypesDto): Promise<any> {
-    return this.complaintTypesModel.findByIdAndUpdate(id, updateComplaintTypesdto, {
-      new: true,
-    });
+  async update(id: string,updateComplaintTypesdto: ComplaintsTypesDto,): Promise<any> {
+    const isIthere = await this.complaintTypesModel.findById(id).exec();
+    if (isIthere === null) {
+      return 'complaint type not found';
+    } else {
+      const updated = this.complaintTypesModel.findByIdAndUpdate(
+        id,
+        updateComplaintTypesdto,
+        {
+          new: true,
+        },
+      );
+      return updated;
+    }
   }
 
   async remove(id: string): Promise<any> {
-    return this.complaintTypesModel.findByIdAndRemove(id);
+    const isIthere = await this.complaintTypesModel.findById(id).exec();    
+    if (isIthere === null) {
+      return 'complaint type not found';
+    } else {
+      if (await this.complaintTypesModel.findByIdAndRemove(id)) {
+        return 'complaint type deleted successfully!';
+      }
+    }
   }
 }

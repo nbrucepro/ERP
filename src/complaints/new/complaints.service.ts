@@ -18,35 +18,47 @@ export class ComplaintsService {
 
   async findAll(): Promise<any> {
     let complaints = this.complaintsModel.find().exec();
-    if (complaints === null){
-      return "complaints not found"
+    if (complaints === null) {
+      return 'complaints not found';
     }
     return complaints;
   }
 
   async findOne(id: string): Promise<any> {
     const complaint = await this.complaintsModel.findById(id).exec();
-    if ( complaint === null) {
+    if (complaint === null) {
       return 'Complaint not found';
     }
     return complaint;
   }
 
   async update(id: string, updateComplaintsdto: ComplaintsDto): Promise<any> {
-    const updated = this.complaintsModel.findByIdAndUpdate(
-      id,
-      updateComplaintsdto,
-      {
-        new: true,
-      },
-    );
-    if (updated == null) {
-      return 'Complaint not found';
+    const isIthere = await this.complaintsModel.findById(id).exec();
+
+    if (isIthere === null) {
+      return 'complaint not found';
+    } else {
+      const updated = this.complaintsModel.findByIdAndUpdate(
+        id,
+        updateComplaintsdto,
+        {
+          new: true,
+        },
+      );
+
+      return updated;
     }
-    return updated;
   }
 
   async remove(id: string): Promise<any> {
-    return this.complaintsModel.findByIdAndRemove(id);
+    const isIthere = await this.complaintsModel.findById(id).exec();
+
+    if (isIthere === null) {
+      return 'complaint not found';
+    } else {
+      if (await this.complaintsModel.findByIdAndRemove(id)) {
+        return 'complaint deleted successfully!';
+      }
+    }
   }
 }

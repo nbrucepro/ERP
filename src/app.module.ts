@@ -37,10 +37,11 @@ import { ComplaintsModule } from './complaints/new/complaints.module';
 import { ComplaintsTypesModule } from './complaints/types/complaintsTypes.module';
 import { ContractModule } from './contract/new/contract.module';
 import { ContractTypesModule } from './contract/types/contractTypes.module';
+import { DealsModule } from './deals/deals.module';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -63,11 +64,30 @@ import { ContractTypesModule } from './contract/types/contractTypes.module';
     ComplaintsTypesModule,
     /* The complaints section */
     
-    /* The complaints section */
+    /* The contract section starts*/
     ContractModule,
     ContractTypesModule,
-    /* The complaints section */
+    /* The contract section ends*/
+    
+    /* The deals section starts*/
+    DealsModule
+    /* The deals section ends*/
+    
+    /* The warnings section */
 
+    /* The warnings section */
+    
+    /* The tasks section */
+
+    /* The tasks section */
+    
+    /* The opportunites section */
+
+    /* The opportunites section */
+    
+    /* The resignation section */
+
+    /* The resignation section */,
     
     FileManagerModule,    
     SalaryModule,
