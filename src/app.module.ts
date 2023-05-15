@@ -38,6 +38,8 @@ import { ComplaintsTypesModule } from './complaints/types/complaintsTypes.module
 import { ContractModule } from './contract/new/contract.module';
 import { ContractTypesModule } from './contract/types/contractTypes.module';
 import { DealsModule } from './deals/deals.module';
+import { WarningsModule } from './warnings/new/warnings.module';
+import { WarningsTypesModule } from './warnings/types/warningsTypes.module';
 @Module({
   imports: [
     // MongooseModule.forRoot('mongodb://localhost/erpdb'),
@@ -70,10 +72,12 @@ import { DealsModule } from './deals/deals.module';
     /* The contract section ends*/
     
     /* The deals section starts*/
-    DealsModule
+    DealsModule,
     /* The deals section ends*/
     
     /* The warnings section */
+    WarningsModule,
+    WarningsTypesModule
 
     /* The warnings section */
     
