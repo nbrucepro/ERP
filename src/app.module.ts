@@ -42,10 +42,11 @@ import { WarningsModule } from './warnings/new/warnings.module';
 import { WarningsTypesModule } from './warnings/types/warningsTypes.module';
 import { TasksModule } from './tasks/tasks.module';
 import { OpportunitiesModule } from './opportunities/opportunities.module';
+import { ResignationModule } from './resignation/resignation.module';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -77,22 +78,22 @@ import { OpportunitiesModule } from './opportunities/opportunities.module';
     DealsModule,
     /* The deals section ends*/
     
-    /* The warnings section */
+    /* The warnings section starts*/
     WarningsModule,
     WarningsTypesModule,
-    /* The warnings section */
+    /* The warnings section ends*/
     
-    /* The tasks section */
+    /* The tasks section starts*/
     TasksModule,  
-    /* The tasks section */
+    /* The tasks section ends*/
     
-    /* The opportunites section */
+    /* The opportunites section starts*/
     OpportunitiesModule,
-    /* The opportunites section */
+    /* The opportunites section ends*/
     
-    /* The resignation section */
-
-    /* The resignation section */
+    /* The resignation section starts*/
+    ResignationModule,
+    /* The resignation section ends*/
     
     FileManagerModule,    
     SalaryModule,
