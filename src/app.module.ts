@@ -32,7 +32,8 @@ import { ProjectsModule } from './projects/projects.module';
 import { ShiftModule } from './shiftManagement/shift/shift.module';
 import { AssignShiftModule } from './shiftManagement/shiftMapping/shift.module';
 import { TransferItemModule } from './stock/transferItem/transferItem.module';
-import { Purchase } from './stock/purchase/purchase.model';
+import { PurchaseModule } from './stock/purchase/purchase.module';
+import { ComplaintsModule } from './complaints/new/complaints.module';
 @Module({
   imports: [
     // MongooseModule.forRoot('mongodb://localhost/erpdb'),
@@ -47,7 +48,7 @@ import { Purchase } from './stock/purchase/purchase.model';
     /* The stock section */
     
     ItemsModule,
-    Purchase,
+    PurchaseModule,
     GrouplistModule,
     ManufacturerModule,
     SupplierModule,
@@ -55,7 +56,7 @@ import { Purchase } from './stock/purchase/purchase.model';
     TransferItemModule,
 
     /* The stock section */
-    
+    ComplaintsModule,
     FileManagerModule,    
     SalaryModule,
     HourlyModule,
