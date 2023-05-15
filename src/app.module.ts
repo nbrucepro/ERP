@@ -34,10 +34,13 @@ import { AssignShiftModule } from './shiftManagement/shiftMapping/shift.module';
 import { TransferItemModule } from './stock/transferItem/transferItem.module';
 import { PurchaseModule } from './stock/purchase/purchase.module';
 import { ComplaintsModule } from './complaints/new/complaints.module';
+import { ComplaintsTypesModule } from './complaints/types/complaintsTypes.module';
+import { ContractModule } from './contract/new/contract.module';
+import { ContractTypesModule } from './contract/types/contractTypes.module';
 @Module({
   imports: [
-    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -45,8 +48,7 @@ import { ComplaintsModule } from './complaints/new/complaints.module';
     ProjectsModule,
     AdminModule,
 
-    /* The stock section */
-    
+    /* The stock section */    
     ItemsModule,
     PurchaseModule,
     GrouplistModule,
@@ -54,9 +56,19 @@ import { ComplaintsModule } from './complaints/new/complaints.module';
     SupplierModule,
     WarehouseModule,
     TransferItemModule,
-
     /* The stock section */
+
+    /* The complaints section */
     ComplaintsModule,
+    ComplaintsTypesModule,
+    /* The complaints section */
+    
+    /* The complaints section */
+    ContractModule,
+    ContractTypesModule,
+    /* The complaints section */
+
+    
     FileManagerModule,    
     SalaryModule,
     HourlyModule,
