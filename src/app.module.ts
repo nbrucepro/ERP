@@ -40,6 +40,7 @@ import { ContractTypesModule } from './contract/types/contractTypes.module';
 import { DealsModule } from './deals/deals.module';
 import { WarningsModule } from './warnings/new/warnings.module';
 import { WarningsTypesModule } from './warnings/types/warningsTypes.module';
+import { TasksModule } from './tasks/tasks.module';
 @Module({
   imports: [
     // MongooseModule.forRoot('mongodb://localhost/erpdb'),
@@ -77,12 +78,10 @@ import { WarningsTypesModule } from './warnings/types/warningsTypes.module';
     
     /* The warnings section */
     WarningsModule,
-    WarningsTypesModule
-
+    WarningsTypesModule,
     /* The warnings section */
-    
     /* The tasks section */
-
+    TasksModule,  
     /* The tasks section */
     
     /* The opportunites section */
@@ -91,7 +90,7 @@ import { WarningsTypesModule } from './warnings/types/warningsTypes.module';
     
     /* The resignation section */
 
-    /* The resignation section */,
+    /* The resignation section */
     
     FileManagerModule,    
     SalaryModule,
