@@ -41,10 +41,11 @@ import { DealsModule } from './deals/deals.module';
 import { WarningsModule } from './warnings/new/warnings.module';
 import { WarningsTypesModule } from './warnings/types/warningsTypes.module';
 import { TasksModule } from './tasks/tasks.module';
+import { OpportunitiesModule } from './opportunities/opportunities.module';
 @Module({
   imports: [
-    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -80,12 +81,13 @@ import { TasksModule } from './tasks/tasks.module';
     WarningsModule,
     WarningsTypesModule,
     /* The warnings section */
+    
     /* The tasks section */
     TasksModule,  
     /* The tasks section */
     
     /* The opportunites section */
-
+    OpportunitiesModule,
     /* The opportunites section */
     
     /* The resignation section */
