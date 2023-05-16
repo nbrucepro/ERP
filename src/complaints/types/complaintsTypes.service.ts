@@ -23,7 +23,7 @@ export class ComplaintsTypesService {
   async findAll(): Promise<any> {
     let complaintTypes = this.complaintTypesModel.find().exec();
     if (complaintTypes === null) {
-      return 'complaints typess not found';
+      return 'complaints types not found';
     }
     return complaintTypes;
   }

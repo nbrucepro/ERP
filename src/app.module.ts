@@ -44,10 +44,12 @@ import { TasksModule } from './tasks/tasks.module';
 import { OpportunitiesModule } from './opportunities/opportunities.module';
 import { ResignationModule } from './resignation/resignation.module';
 import { BugsModule } from './bugs/bugs.module';
+import { TerminationModule } from './termination/new/termination.module';
+import { TerminationTypesModule } from './termination/types/terminationTypes.module';
 @Module({
   imports: [
-    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -55,7 +57,7 @@ import { BugsModule } from './bugs/bugs.module';
     ProjectsModule,
     AdminModule,
 
-    /* The stock section */    
+    /** The stock section */    
     ItemsModule,
     PurchaseModule,
     GrouplistModule,
@@ -63,42 +65,50 @@ import { BugsModule } from './bugs/bugs.module';
     SupplierModule,
     WarehouseModule,
     TransferItemModule,
-    /* The stock section */
+    /** The stock section */
 
-    /* The complaints section */
+    /** The complaints section */
     ComplaintsModule,
     ComplaintsTypesModule,
-    /* The complaints section */
+    /** The complaints section */
     
-    /* The contract section starts*/
+    /** The contract section starts*/
     ContractModule,
     ContractTypesModule,
-    /* The contract section ends*/
+    /** The contract section ends*/
     
-    /* The deals section starts*/
+    /** The deals section starts*/
     DealsModule,
-    /* The deals section ends*/
+    /** The deals section ends*/
     
-    /* The warnings section starts*/
+    /** The warnings section starts*/
     WarningsModule,
     WarningsTypesModule,
-    /* The warnings section ends*/
+    /** The warnings section ends*/
     
-    /* The tasks section starts*/
+    /** The tasks section starts*/
     TasksModule,  
-    /* The tasks section ends*/
+    /** The tasks section ends*/
     
-    /* The opportunites section starts*/
+    /** The opportunites section starts*/
     OpportunitiesModule,
-    /* The opportunites section ends*/
+    /** The opportunites section ends*/
     
-    /* The resignation section starts*/
+    /** The resignation section starts*/
     ResignationModule,
-    /* The resignation section ends*/
+    /** The resignation section ends*/
     
-    /* The bugs section starts */
+    /** The bugs section starts */
     BugsModule,
-    /* The bugs section ends */
+    /** The bugs section ends */
+
+
+    /** The termination section starts*/
+    TerminationModule,
+    TerminationTypesModule,
+
+    /** The attendance section ends */
+
     FileManagerModule,    
     SalaryModule,
     HourlyModule,
