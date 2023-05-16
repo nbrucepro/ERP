@@ -49,10 +49,12 @@ import { TerminationTypesModule } from './termination/types/terminationTypes.mod
 import { AttendanceModule } from './attendance/mark/attendance.module';
 import { TimeChangeRequestModule } from './attendance/timeChangeRequest/timeChangeRequest.module';
 import { PromotionModule } from './promotion/promotion.module';
+import { GoalsModule } from './utilities/goals/goals.module';
+import { HolidayModule } from './utilities/holiday/holiday.module';
 @Module({
   imports: [
-    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -120,6 +122,11 @@ import { PromotionModule } from './promotion/promotion.module';
     /** The promotion section starts */
     PromotionModule,
     /** The promotion section ends*/
+
+    /** The utilities section starts*/
+    GoalsModule,
+    HolidayModule,
+    /** The utilities section ends*/
 
     FileManagerModule,    
     SalaryModule,
