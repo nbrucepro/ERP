@@ -51,10 +51,11 @@ import { TimeChangeRequestModule } from './attendance/timeChangeRequest/timeChan
 import { PromotionModule } from './promotion/promotion.module';
 import { GoalsModule } from './utilities/goals/goals.module';
 import { HolidayModule } from './utilities/holiday/holiday.module';
+import { AnnouncementsModule } from './announcements/announcements.module';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -127,6 +128,10 @@ import { HolidayModule } from './utilities/holiday/holiday.module';
     GoalsModule,
     HolidayModule,
     /** The utilities section ends*/
+
+    /** The Announcements section starts */
+    AnnouncementsModule,
+    /** The Announcements section ends */
 
     FileManagerModule,    
     SalaryModule,
