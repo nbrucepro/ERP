@@ -48,6 +48,7 @@ import { TerminationModule } from './termination/new/termination.module';
 import { TerminationTypesModule } from './termination/types/terminationTypes.module';
 import { AttendanceModule } from './attendance/mark/attendance.module';
 import { TimeChangeRequestModule } from './attendance/timeChangeRequest/timeChangeRequest.module';
+import { PromotionModule } from './promotion/promotion.module';
 @Module({
   imports: [
     // MongooseModule.forRoot('mongodb://localhost/erpdb'),
@@ -115,6 +116,10 @@ import { TimeChangeRequestModule } from './attendance/timeChangeRequest/timeChan
     AttendanceModule,
     TimeChangeRequestModule,
     /** The attendance section ends */
+
+    /** The promotion section starts */
+    PromotionModule,
+    /** The promotion section ends*/
 
     FileManagerModule,    
     SalaryModule,
