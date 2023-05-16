@@ -46,10 +46,12 @@ import { ResignationModule } from './resignation/resignation.module';
 import { BugsModule } from './bugs/bugs.module';
 import { TerminationModule } from './termination/new/termination.module';
 import { TerminationTypesModule } from './termination/types/terminationTypes.module';
+import { AttendanceModule } from './attendance/mark/attendance.module';
+import { TimeChangeRequestModule } from './attendance/timeChangeRequest/timeChangeRequest.module';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -107,6 +109,11 @@ import { TerminationTypesModule } from './termination/types/terminationTypes.mod
     TerminationModule,
     TerminationTypesModule,
 
+    /** The termination section ends*/
+
+    /** The attendance section starts*/
+    AttendanceModule,
+    TimeChangeRequestModule,
     /** The attendance section ends */
 
     FileManagerModule,    
