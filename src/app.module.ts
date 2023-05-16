@@ -43,6 +43,7 @@ import { WarningsTypesModule } from './warnings/types/warningsTypes.module';
 import { TasksModule } from './tasks/tasks.module';
 import { OpportunitiesModule } from './opportunities/opportunities.module';
 import { ResignationModule } from './resignation/resignation.module';
+import { BugsModule } from './bugs/bugs.module';
 @Module({
   imports: [
     // MongooseModule.forRoot('mongodb://localhost/erpdb'),
@@ -95,6 +96,9 @@ import { ResignationModule } from './resignation/resignation.module';
     ResignationModule,
     /* The resignation section ends*/
     
+    /* The bugs section starts */
+    BugsModule,
+    /* The bugs section ends */
     FileManagerModule,    
     SalaryModule,
     HourlyModule,
