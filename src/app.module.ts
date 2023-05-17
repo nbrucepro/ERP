@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AdminModule } from './admin/admin.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import UsersModule from './users/users.module';
 import { ItemsModule } from './stock/item/items.module';
@@ -54,18 +53,21 @@ import { HolidayModule } from './utilities/holiday/holiday.module';
 import { AnnouncementsModule } from './announcements/announcements.module';
 import { CompainsModule } from './marketing/compains/compains.module';
 import { TargetListModule } from './marketing/targetList/targetList.module';
+import { QuotesModule } from './business/Quotes/quotes.module';
+import { TaxModule } from './business/tax/tax.module';
+import { ContactModule } from './business/shipping_billing_Contact/contact.module';
+import { ShippingProviderModule } from './business/shippingProvider/shippingProvider.module';
+import { SalesOrderModule } from './business/SalesOrder/salesOrder.module';
+import { BusinessInvoiceModule } from './business/Invoice/invoice.module';
+import { ProductModule } from './business/product/product.module';
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
-    AdminModule,
+    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     UsersModule,
     ShiftModule,
     AssignShiftModule,
-    ProjectsModule,
-    AdminModule,
-
-    /** The stock section */    
+    ProjectsModule,    
+    /** The stock section */
     ItemsModule,
     PurchaseModule,
     GrouplistModule,
@@ -79,37 +81,36 @@ import { TargetListModule } from './marketing/targetList/targetList.module';
     ComplaintsModule,
     ComplaintsTypesModule,
     /** The complaints section */
-    
+
     /** The contract section starts*/
     ContractModule,
     ContractTypesModule,
     /** The contract section ends*/
-    
+
     /** The deals section starts*/
     DealsModule,
     /** The deals section ends*/
-    
+
     /** The warnings section starts*/
     WarningsModule,
     WarningsTypesModule,
     /** The warnings section ends*/
-    
+
     /** The tasks section starts*/
-    TasksModule,  
+    TasksModule,
     /** The tasks section ends*/
-    
+
     /** An opportunites section starts*/
     OpportunitiesModule,
     /** An opportunites section ends*/
-    
+
     /** The resignation section starts*/
     ResignationModule,
     /** The resignation section ends*/
-    
+
     /** The bugs section starts */
     BugsModule,
     /** The bugs section ends */
-
 
     /** The termination section starts*/
     TerminationModule,
@@ -135,10 +136,12 @@ import { TargetListModule } from './marketing/targetList/targetList.module';
     AnnouncementsModule,
     /** An Announcements section ends */
 
-    FileManagerModule,    
+    FileManagerModule,
+    /**The Payroll section starts */
     SalaryModule,
     HourlyModule,
     TrainingModule,
+    /**The Payroll section starts ends*/
     LeadsModule,
     InvoiceModule,
     TicketsModule,
@@ -147,28 +150,39 @@ import { TargetListModule } from './marketing/targetList/targetList.module';
     BankAccountModule,
     ClientsModule,
     DepartmentModule,
+    /**An Office stock section starts */
     OfficeCategoryModule,
-    OfficeStockModule,   
+    OfficeStockModule,
     OfficeAssignStockModule,
-    JobsModule,    
+    /**An Office stock section ends */
+
+    JobsModule,
     /**The performance section starts */
     IndicatorsModule,
     AppraisalModule,
     /**The performance section ends */
 
     /**The Leave section starts */
-    LeaveModule,  
+    LeaveModule,
     /**The Leace section ends */
 
     /**The marketing section starts*/
     CompainsModule,
     TargetListModule,
-    /**The marketing section ends*/ 
-    
+    /**The marketing section ends*/
+
+    /**The business section starts */
+    QuotesModule,
+    TaxModule,
+    ContactModule,
+    ShippingProviderModule,
+    SalesOrderModule,
+    BusinessInvoiceModule,
+    ProductModule
+    /**The business section ends */
   ],
 
-  controllers: [AppController], 
+  controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {  
-}  
+export class AppModule {}
