@@ -1,6 +1,6 @@
 ## Description
 
-[Gambrin](https://erp-be.onrender.com/) Backend Project built with nest js [Nest](https://github.com/nestjs/nest
+[Gambrin](https://erp-be.onrender.com/) Backend Project built with nest js [Nest](https://github.com/nestjs/nest)
 
 ## Installation
 
