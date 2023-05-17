@@ -52,10 +52,12 @@ import { PromotionModule } from './promotion/promotion.module';
 import { GoalsModule } from './utilities/goals/goals.module';
 import { HolidayModule } from './utilities/holiday/holiday.module';
 import { AnnouncementsModule } from './announcements/announcements.module';
+import { CompainsModule } from './marketing/compains/compains.module';
+import { TargetListModule } from './marketing/targetList/targetList.module';
 @Module({
   imports: [
-    // MongooseModule.forRoot('mongodb://localhost/erpdb'),
-    MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
+    MongooseModule.forRoot('mongodb://localhost/erpdb'),
+    // MongooseModule.forRoot('mongodb+srv://bruce:bruce@cluster0.exmgv.mongodb.net/erpdb'),
     AdminModule,
     UsersModule,
     ShiftModule,
@@ -96,9 +98,9 @@ import { AnnouncementsModule } from './announcements/announcements.module';
     TasksModule,  
     /** The tasks section ends*/
     
-    /** The opportunites section starts*/
+    /** An opportunites section starts*/
     OpportunitiesModule,
-    /** The opportunites section ends*/
+    /** An opportunites section ends*/
     
     /** The resignation section starts*/
     ResignationModule,
@@ -115,23 +117,23 @@ import { AnnouncementsModule } from './announcements/announcements.module';
 
     /** The termination section ends*/
 
-    /** The attendance section starts*/
+    /** An attendance section starts*/
     AttendanceModule,
     TimeChangeRequestModule,
-    /** The attendance section ends */
+    /** An attendance section ends */
 
     /** The promotion section starts */
     PromotionModule,
     /** The promotion section ends*/
 
-    /** The utilities section starts*/
+    /** An utilities section starts*/
     GoalsModule,
     HolidayModule,
-    /** The utilities section ends*/
+    /** An utilities section ends*/
 
-    /** The Announcements section starts */
+    /** An Announcements section starts */
     AnnouncementsModule,
-    /** The Announcements section ends */
+    /** An Announcements section ends */
 
     FileManagerModule,    
     SalaryModule,
@@ -148,11 +150,23 @@ import { AnnouncementsModule } from './announcements/announcements.module';
     OfficeCategoryModule,
     OfficeStockModule,   
     OfficeAssignStockModule,
-    JobsModule,
+    JobsModule,    
+    /**The performance section starts */
     IndicatorsModule,
     AppraisalModule,
-    LeaveModule  
+    /**The performance section ends */
+
+    /**The Leave section starts */
+    LeaveModule,  
+    /**The Leace section ends */
+
+    /**The marketing section starts*/
+    CompainsModule,
+    TargetListModule,
+    /**The marketing section ends*/ 
+    
   ],
+
   controllers: [AppController], 
   providers: [AppService],
 })
